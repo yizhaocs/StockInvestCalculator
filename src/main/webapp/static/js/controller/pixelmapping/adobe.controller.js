@@ -19,24 +19,24 @@ app.controller('listCtrlAdobe', function ($scope) {
         $scope.frontendData.totals=c;
     }
 
-    //
-    ////Intrinsic Value
-    //function multiply(){
-    //    coupon=Number(document.calculator.coupon.value);
-    //    par=Number(document.calculator.par.value);
-    //    year=Number(document.calculator.year.value);
-    //    r=Number(document.calculator.r.value);
-    //    bvc=Number(document.calculator.bvc.value);
-    //
-    //    perc=(1+bvc/100);
-    //    base=Math.pow(perc,year);
-    //    parr=par*base;
-    //    r=r/100;
-    //
-    //    extra=Math.pow((1+r),year);
-    //
-    //    c=coupon*(1-(1/extra))/r+parr/extra;
-    //
-    //    document.calculator.total.value=c;
-    //}
+
+    //Intrinsic Value
+    $scope.multiply = function multiply(){
+        var coupon=$scope.frontendData.coupon;
+        var par=$scope.frontendData.par;
+        var year=$scope.frontendData.year;
+        var r=$scope.frontendData.r;
+        var bvc=$scope.frontendData.bvc;
+
+        var perc=(1+bvc/100);
+        var base=Math.pow(perc,year);
+        var parr=par*base;
+        r=r/100;
+
+        var extra=Math.pow((1+r),year);
+
+        var c=coupon*(1-(1/extra))/r+parr/extra;
+
+        $scope.frontendData.total=c;
+    }
 });

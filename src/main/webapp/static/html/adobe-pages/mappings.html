@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-12">
         <hr>
-        <span><b>adobe_dpkey_mapping</b></span><br><br>
+        <span><b>INTRINSIC VALUE CALCULATOR</b></span><br><br>
         <form name="calculators">
             <p>Current Book Value ($): <input type="text" name="cbv" ng-model="frontendData.cbv"></p>
             <p>Old Book Value ($): <input type="text" name="obv" ng-model="frontendData.obv"></p>
@@ -15,23 +15,25 @@
         </form>
     </div>
 
+    <hr>
+
     <div class="col-md-12">
         <form name="calculator">
             <p>Cash Taken out of business ($):
-                <input type="text" name="coupon"> *This is dividends recieved for 1 year</p>
-            <p>Current Book Value ($): <input type="text" name="par"> *We need to know this so we can determine the base
+                <input type="text" name="coupon" ng-model="frontendData.coupon"> *This is dividends recieved for 1 year</p>
+            <p>Current Book Value ($): <input type="text" name="par" ng-model="frontendData.par"> *We need to know this so we can determine the base
                 value that's changing</p>
-            <p>Average Percent Change in book value per year (%): <input type="text" name="bvc"> *This will determine
+            <p>Average Percent Change in book value per year (%): <input type="text" name="bvc" ng-model="frontendData.bvc"> *This will determine
                 the estimate BV at the end of the next 10 years</p>
-            <p>Years: <input type="text" name="year"> *This will most likely be 10 (if you're comparing a 10 year
+            <p>Years: <input type="text" name="year" ng-model="frontendData.year"> *This will most likely be 10 (if you're comparing a 10 year
                 federal note) </p>
-            <p>(Discount Rate) 10 year federal note (%): <input type="text" name="r"> *<a
+            <p>(Discount Rate) 10 year federal note (%): <input type="text" name="r" ng-model="frontendData.r"> *<a
                     href="http://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield"
                     target="_new">Look up the ten year treasury note by clicking on this text</a></p>
             <div id="button2">
-                <input type="button" value="Calculate" onclick="javascript:multiply();"> <br>
+                <input type="button" value="Calculate" ng-click="multiply();"> <br>
             </div>
-            <p>Intrinsic Value: $<input type="text" name="total" maxlength="4" size="4"></p>
+            <p>Intrinsic Value: $<input type="text" name="total" maxlength="4" size="4" ng-model="frontendData.total"></p>
         </form>
     </div>
 </div>
