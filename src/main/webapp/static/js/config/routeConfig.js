@@ -209,29 +209,8 @@ app.config(['$routeProvider', '$locationProvider',
                 }
             })
             .otherwise({
-                templateUrl: 'static/html/usermanagement/login/login.view.html',
-                redirectTo: base + 'login'
+                templateUrl: 'static/html/adobe-pages/mappings.html',
+                redirectTo: base + 'adobe'
             });
     }]);
 
-app.run(['$location', '$rootScope', '$cookieStore', '$http', function ($location, $rootScope, $cookieStore, $http) {
-    // keep user logged in after page refresh
-    $rootScope.globals = $cookieStore.get('globals') || {};
-    if ($rootScope.globals.currentUser) {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-    }
-
-    $rootScope.isroot = false;
-    $rootScope.base = '';
-
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        $rootScope.title = current.$$route.title;
-
-        // redirect to login page if not logged in and trying to access a restricted page
-        var restrictedPage = $.inArray($location.path(), [$rootScope.base + 'login', $rootScope.base + 'register']) === -1;
-        var loggedIn = $rootScope.globals.currentUser;
-        if (restrictedPage && !loggedIn) {
-            $location.path($rootScope.base + 'login');
-        }
-    });
-}]);

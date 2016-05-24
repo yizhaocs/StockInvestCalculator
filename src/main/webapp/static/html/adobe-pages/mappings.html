@@ -2,29 +2,36 @@
     <div class="col-md-12">
         <hr>
         <span><b>adobe_dpkey_mapping</b></span><br><br>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <a class="btn btn-lg btn-success" href="adobe/edit-mapping/0"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add new mapping</a>
+        <form name="calculators">
+            <p>Current Book Value ($): <input type="text" name="cbv" ng-model="frontendData.cbv"></p>
+            <p>Old Book Value ($): <input type="text" name="obv" ng-model="frontendData.obv"></p>
+            <p># of Years between Book Values: <input type="text" name="years" ng-model="frontendData.years"></p>
+
+
+            <div id="button1">
+                <input type="button" value="Calculate" ng-click="gain();"> <br>
             </div>
-        </nav>
-        <table class="table table-striped table-bordered">
-            <thead>
-            <th>Adobe Segment Id&nbsp;</th>
-            <th>DP Key Id&nbsp;</th>
-            <th>Action&nbsp;</th>
-            </thead>
-            <tbody>
-            <tr ng-repeat="data in frontendData">
-                <td>{{data.adobe_segment_id}}</td>
-                <td>{{data.dp_key_id}}</td>
-                <td><a href="adobe/edit-mapping/{{data.adobe_segment_id}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit Mapping</a></td>
-            </tr>
-            </tbody>
-        </table>
+            <p>Average Book Value change (%):<input type="text" name="totals"  ng-model="frontendData.totals" maxlength="4" size="4"></p>
+        </form>
     </div>
-    <div class="col-md-12" ng-show="frontendData.length == 0">
-        <div class="col-md-12">
-            <h4>No mapping found</h4>
-        </div>
+
+    <div class="col-md-12">
+        <form name="calculator">
+            <p>Cash Taken out of business ($):
+                <input type="text" name="coupon"> *This is dividends recieved for 1 year</p>
+            <p>Current Book Value ($): <input type="text" name="par"> *We need to know this so we can determine the base
+                value that's changing</p>
+            <p>Average Percent Change in book value per year (%): <input type="text" name="bvc"> *This will determine
+                the estimate BV at the end of the next 10 years</p>
+            <p>Years: <input type="text" name="year"> *This will most likely be 10 (if you're comparing a 10 year
+                federal note) </p>
+            <p>(Discount Rate) 10 year federal note (%): <input type="text" name="r"> *<a
+                    href="http://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield"
+                    target="_new">Look up the ten year treasury note by clicking on this text</a></p>
+            <div id="button2">
+                <input type="button" value="Calculate" onclick="javascript:multiply();"> <br>
+            </div>
+            <p>Intrinsic Value: $<input type="text" name="total" maxlength="4" size="4"></p>
+        </form>
     </div>
 </div>

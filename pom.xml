@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adara.pixeldataengineui</groupId>
-    <artifactId>PixelDataEngineUI</artifactId>
+    <artifactId>StockInvestCalculator</artifactId>
     <packaging>war</packaging>
     <version>1.0.0</version>
-    <name>Pixel Data Engine UI</name>
+    <name>Stock Invest Calculator</name>
 
     <properties>
         <angularjs.version>1.5.2</angularjs.version>
@@ -20,15 +20,8 @@
         <org.apache.maven.plugins.version>2.4</org.apache.maven.plugins.version>
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
         <mysql.version>5.0.8</mysql.version>
-        <properties.dir>../MavenBuild/properties</properties.dir>
     </properties>
 
-    <parent>
-        <groupId>opinmind</groupId>
-        <artifactId>maven-common</artifactId>
-        <relativePath>../MavenCommon/pom.xml</relativePath>
-        <version>1.0</version>
-    </parent>
 
     <dependencies>
         <!-- Frontend Jar packages for AngularJS & bootstrap -->
@@ -95,11 +88,6 @@
             <version>${mysql.version}</version>
         </dependency>
 
-        <!-- data source -->
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-        </dependency>
 
         <!-- Json -->
         <dependency>
@@ -133,18 +121,11 @@
             <artifactId>commons-lang</artifactId>
             <version>2.2</version>
         </dependency>
-
-        <!-- pixel-data-engine -->
-        <dependency>
-            <groupId>opinmind</groupId>
-            <artifactId>pixel-data-engine</artifactId>
-            <version>1.0</version>
-        </dependency>
     </dependencies>
 
 
     <build>
-        <finalName>PixelDataEngineUI</finalName>
+        <finalName>StockInvestCalculator</finalName>
 
         <pluginManagement>
             <plugins>

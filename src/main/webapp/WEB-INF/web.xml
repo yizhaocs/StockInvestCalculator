@@ -24,10 +24,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/configFiles.xml
             /WEB-INF/pdeui-servlet.xml
-            /WEB-INF/app.xml
-            /WEB-INF/datasources.xml
         </param-value>
     </context-param>
 

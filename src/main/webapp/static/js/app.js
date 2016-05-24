@@ -5,6 +5,4 @@
 
 'use strict';
 
-var app = angular.module('myApp', ['ngRoute', 'ngCookies', 'ngMd5']);
-
-
+var app = angular.module('myApp', ['ngRoute']);
