@@ -63,7 +63,7 @@ app.controller('dfcCalculatorController', function ($scope) {
                     if (counter > 10) {
                         break;
                     }
-                    $('#' + cell_prefix + "_" + counter.toString()).val(data[i]);
+                    $('#' + cell_prefix + "_" + counter).val(data[i]);
                     //console.log(data[i]);
                     counter++;
                 }
@@ -155,17 +155,17 @@ app.controller('dfcCalculatorController', function ($scope) {
 
                 html = "<tr><td>Year</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>" + i.toString() + "</td>";
+                    html += "<td>" + i + "</td>";
                 }
                 html += "</tr><tr><td>FCF</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>$" + fcf[i - 1].toString() + "</td>";
+                    html += "<td>$" + fcf[i - 1] + "</td>";
                 }
 
 
                 html += "</tr><tr><td>GR</td><td>" + (gr * 100).toFixed(2) + "%</td>";
                 if (n > 1) {
-                    html += "<td colspan=\"" + (n - 1).toString() + "\">&nbsp;</td>";
+                    html += "<td colspan=\"" + (n - 1) + "\">&nbsp;</td>";
                 }
 
                 html += "</tr>";
@@ -221,25 +221,25 @@ app.controller('dfcCalculatorController', function ($scope) {
 
                 html = "<tr><td>Year</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>" + i.toString() + "</td>";
+                    html += "<td>" + i + "</td>";
                 }
                 html += "</tr><tr><td>FCF</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>$" + fcf[i - 1].toString() + "</td>";
+                    html += "<td>$" + fcf[i - 1] + "</td>";
                 }
                 html += "</tr><tr><td>DF</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>" + df[i - 1].toString() + "</td>";
+                    html += "<td>" + df[i - 1] + "</td>";
                 }
                 html += "</tr><tr class=\"calc-results-hl\"><td>DFCF</td>";
                 for (var i = 1; i <= n; i++) {
-                    html += "<td>$" + dfcf[i - 1].toString() + "</td>";
+                    html += "<td>$" + dfcf[i - 1] + "</td>";
                 }
 
 
                 html += "</tr><tr>";
                 if (n > 2) {
-                    html += "<td colspan=\"" + (n - 2).toString() + "\">&nbsp;</td>";
+                    html += "<td colspan=\"" + (n - 2) + "\">&nbsp;</td>";
                 }
 
                 if (n < 2) {
@@ -248,7 +248,7 @@ app.controller('dfcCalculatorController', function ($scope) {
                     html += "<td class=\"calc-results-hl\" colspan=\"2\">Sum of DFCF</td>";
                 }
 
-                html += "<td class=\"calc-results-hl\">$" + sdfcf.toString() + "</td></tr>";
+                html += "<td class=\"calc-results-hl\">$" + sdfcf + "</td></tr>";
 
                 $("#wrapper-step1-results").hide();
                 $("#wrapper-step2-results").html("<table class=\"calc-results\">" + html + "</table>");
@@ -257,7 +257,7 @@ app.controller('dfcCalculatorController', function ($scope) {
                 $("#wrapper-step2-btn").hide();
                 $("#wrapper-step3").show();
 
-                $('#span-years').html(n.toString());
+                $('#span-years').html(n);
 
             }
         }
@@ -289,9 +289,9 @@ app.controller('dfcCalculatorController', function ($scope) {
 
                 html += "<tr>";
                 if (n > 5) {
-                    html += "<td colspan=\"" + (n - 3).toString() + "\">&nbsp;</td>";
+                    html += "<td colspan=\"" + (n - 3) + "\">&nbsp;</td>";
                 } else if (n > 2) {
-                    html += "<td colspan=\"" + (n - 2).toString() + "\">&nbsp;</td>";
+                    html += "<td colspan=\"" + (n - 2) + "\">&nbsp;</td>";
                 }
 
                 if (n == 1) {
@@ -302,7 +302,7 @@ app.controller('dfcCalculatorController', function ($scope) {
                     html += "<td class=\"calc-results-hl-final\" colspan=\"3\">Discontinued perpetuity cash flow (DPCF)</td>";
                 }
 
-                html += "<td class=\"calc-results-hl-final\">$" + dpcf.toString() + "</td></tr>";
+                html += "<td class=\"calc-results-hl-final\">$" + dpcf + "</td></tr>";
 
                 $("#wrapper-step2-results").hide();
                 $("#wrapper-step3-results").html("<table class=\"calc-results\">" + html + "</table>");
@@ -380,7 +380,7 @@ app.controller('dfcCalculatorController', function ($scope) {
                     var counter = 0;
                     do {
                         xa = xb;
-                        xb = fndr(xa);
+                        xb = $scope.fndr(xa);
                         counter++;
                     } while ((Math.abs(xb - xa) > eps) && (counter < 30) && (Math.abs(xb - xa) < 1));
 
@@ -425,7 +425,7 @@ app.controller('dfcCalculatorController', function ($scope) {
             var est_fcf = 0;
             var steps = 0;
             for (var i = 1; i <= 10; i++) {
-                var fcf_step = $scope.cur2float($('#txt_fcf_' + i.toString()).val());
+                var fcf_step = $scope.cur2float($('#txt_fcf_' + i).val());
                 if (!isNaN(fcf_step)) {
                     est_fcf += fcf_step;
                     steps++;
