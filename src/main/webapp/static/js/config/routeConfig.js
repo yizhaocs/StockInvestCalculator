@@ -13,25 +13,25 @@ app.config(['$routeProvider', '$locationProvider',
         $routeProvider
             .when('/', {
                 title: 'Adobe Mappings',
-                templateUrl: 'static/html/adobe-pages/mappings.html',
+                templateUrl: 'static/html/adobe-pages/calculator.html',
                 controller: 'listCtrlAdobe'
             })
 
             .when(base + 'adobe', {
                 title: 'Adobe Mappings',
-                templateUrl: 'static/html/adobe-pages/mappings.html',
+                templateUrl: 'static/html/adobe-pages/calculator.html',
                 controller: 'listCtrlAdobe'
             })
 
             .when(base + 'derive-conversion', {
                 title: 'Derive Combo Pixel Mappings',
-                templateUrl: 'static/html/derive-conversion-pages/mappings.html',
+                templateUrl: 'static/html/derive-conversion-pages/calculator.html',
                 controller: 'listCtrlDeriveConversion'
             })
 
             .when(base + 'dbm', {
                 title: 'Dbm Mappings',
-                templateUrl: 'static/html/dbm-pages/mappings.html',
+                templateUrl: 'static/html/dbm-pages/calculator.html',
                 controller: 'listCtrlDbm'
             })
 
@@ -42,7 +42,7 @@ app.config(['$routeProvider', '$locationProvider',
             })
 
             .otherwise({
-                templateUrl: 'static/html/adobe-pages/mappings.html',
+                templateUrl: 'static/html/adobe-pages/calculator.html',
                 redirectTo: base + 'adobe'
             });
     }]);
