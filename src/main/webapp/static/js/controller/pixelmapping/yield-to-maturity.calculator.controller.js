@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('listCtrlDeriveConversion', function ($scope) {
+app.controller('yieldToMaturityCalculatorController', function ($scope) {
     $scope.multiply = function multiply(){
         var coupon=$scope.frontendData.coupon;
         var par=$scope.frontendData.par;

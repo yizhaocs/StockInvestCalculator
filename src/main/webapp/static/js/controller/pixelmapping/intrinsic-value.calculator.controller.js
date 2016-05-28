@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('listCtrlAdobe', function ($scope) {
+app.controller('intrinsicValueCalculatorController', function ($scope) {
     //Average Book Value change
     $scope.gain = function gain(){
         var cbv=$scope.frontendData.cbv;

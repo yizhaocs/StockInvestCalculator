@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('listCtrlDbm', function ($scope) {
+app.controller('yieldToCallCalculatorController', function ($scope) {
     $scope.multiply = function multiply(){
         var coupon=$scope.frontendData.coupon;
         var par=$scope.frontendData.par;

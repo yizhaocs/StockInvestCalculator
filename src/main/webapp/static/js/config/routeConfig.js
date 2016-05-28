@@ -12,27 +12,27 @@ app.config(['$routeProvider', '$locationProvider',
 
         $routeProvider
             .when('/', {
-                title: 'Adobe Mappings',
-                templateUrl: 'static/html/adobe-pages/calculator.html',
-                controller: 'listCtrlAdobe'
+                title: 'Intrinsic Value Calculator',
+                templateUrl: 'static/html/intrinsic-value-calculator-pages/calculator.html',
+                controller: 'intrinsicValueCalculatorController'
             })
 
-            .when(base + 'adobe', {
-                title: 'Adobe Mappings',
-                templateUrl: 'static/html/adobe-pages/calculator.html',
-                controller: 'listCtrlAdobe'
+            .when(base + 'intrinsic-value-calculator', {
+                title: 'Intrinsic Value Calculator',
+                templateUrl: 'static/html/intrinsic-value-calculator-pages/calculator.html',
+                controller: 'intrinsicValueCalculatorController'
             })
 
-            .when(base + 'derive-conversion', {
-                title: 'Derive Combo Pixel Mappings',
-                templateUrl: 'static/html/derive-conversion-pages/calculator.html',
-                controller: 'listCtrlDeriveConversion'
+            .when(base + 'yield-to-call', {
+                title: 'Yield to Call Calculator',
+                templateUrl: 'static/html/yield-to-call-pages/calculator.html',
+                controller: 'yieldToCallCalculatorController'
             })
 
-            .when(base + 'dbm', {
-                title: 'Dbm Mappings',
-                templateUrl: 'static/html/dbm-pages/calculator.html',
-                controller: 'listCtrlDbm'
+            .when(base + 'yield-to-maturity', {
+                title: 'Yield to Maturity Calculator',
+                templateUrl: 'static/html/yield-to-maturity-pages/calculator.html',
+                controller: 'yieldToMaturityCalculatorController'
             })
 
             .when(base + 'bonds-market-price-calculator', {
@@ -50,8 +50,8 @@ app.config(['$routeProvider', '$locationProvider',
             })
 
             .otherwise({
-                templateUrl: 'static/html/adobe-pages/calculator.html',
-                redirectTo: base + 'adobe'
+                templateUrl: 'static/html/intrinsic-value-calculator-pages/calculator.html',
+                redirectTo: base + 'intrinsic-value-calculator'
             });
     }]);
 
