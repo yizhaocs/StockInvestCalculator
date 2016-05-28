@@ -1,0 +1,271 @@
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <span><b>The DCF Calculator</b></span><br><br>
+        <div id="calc-wrapper">
+            <br>
+
+            <div id="wrapper-step1">
+                <div id="wrapper-byfcf">
+                    <div class="input-label">
+                        What is your company's  free cash flow (Owners Earnings)?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-byfcf" value="1,000" maxlength="20">
+                    </div>
+                    <div class="input-label" ng-click="show_fcf_window();" style="width: 100px; color: #0000FF; cursor: pointer;">Estimate average Free Cash Flow?
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="fcf-window" style="display: block;">
+                    <div class="modal-window-close" ng-click="hide_fcf_window();">
+                        X
+                    </div>
+                    <div style="margin-left:50px; margin-right: 50px; font-size: 22px; text-align: center">
+                        Please input values for historical free cash flow to determine the average.
+                    </div>
+                    <br>
+
+                    <div>
+                        <table class="calc-results">
+                            <tbody><tr>
+                                <td>Year</td>
+                                <td>-10</td>
+                                <td>-9</td>
+                                <td>-8</td>
+                                <td>-7</td>
+                                <td>-6</td>
+                                <td>-5</td>
+                                <td>-4</td>
+                                <td>-3</td>
+                                <td>-2</td>
+                                <td>-1</td>
+                            </tr>
+                            <tr>
+                                <td>FCF</td>
+                                <td><input type="text" id="txt_fcf_1" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_2" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_3" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_4" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_5" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_6" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_7" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_8" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_9" class="estimate-input"></td>
+                                <td><input type="text" id="txt_fcf_10" class="estimate-input"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="8">&nbsp;</td>
+                                <td colspan="2">Average Free<br>Cash Flow</td>
+                                <td><span id="est-fcf">$9.00</span></td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                    <br>
+                    <table border="0" cellpadding="5">
+                        <tbody><tr>
+                            <td style="font-size: 18px;">
+                                Need help finding the FCF? Input the ticket here:
+                            </td>
+                            <td><input type="text" id="txt_fcf_ticker" class="estimate-input"></td>
+                            <td style="width:300px; text-align: right;">
+                                <button type="button" id="btn-fcf-window" ng-click="use_est_fcf()">Use This Average FCF</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <button type="button" id="btn-fcf-load" ng-click="load_external_fcf()" style="width:80px;">Find</button>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        </tbody></table>
+
+                </div>
+
+                <div id="error-byfcf" class="input-error" style="display: none;">
+                    Please enter valid positive cashflow value
+                </div>
+                <div id="wrapper-gr">
+                    <div class="input-label">
+                        In the short term, what percent annually (use a whole number)<br>do you expect the free cash flow to
+                        grow?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-gr" value=".06" maxlength="20">
+                    </div>
+                    <div class="input-label" ng-click="show_gr_window();" style="width: 100px; color: #0000FF; cursor: pointer;">Estimate average Growth Rate?
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="gr-window" style="display: none;">
+                    <div class="modal-window-close" ng-click="hide_gr_window();">
+                        X
+                    </div>
+                    <div style="margin-left:50px; margin-right: 50px; font-size: 22px; text-align: center">
+                        Please input values for historical Operating Cash Flow and Investing Cash Flow to determine the average
+                        Cash Flow.
+                    </div>
+                    <br>
+
+                    <div>
+                        <table class="calc-results">
+                            <tbody><tr>
+                                <td>&nbsp;</td>
+                                <td>Past</td>
+                                <td>Current</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Net Income</td>
+
+                                <td><input type="text" id="txt_income_past" class="estimate-input"></td>
+                                <td><input type="text" id="txt_income_current" class="estimate-input"></td>
+                                <td><button type="button" ng-click="clear_income()">Clear</button> </td>
+                            </tr>
+                            <tr>
+                                <td>Year</td>
+                                <td><input type="text" id="txt_year_past" class="estimate-input"></td>
+                                <td><input type="text" id="txt_year_current" class="estimate-input"></td>
+                                <td><button type="button" ng-click="clear_years()">Clear</button> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Average Growth Rate</td>
+                                <td><span id="est-gr">$0.00</span></td>
+                                <td><button type="button" id="btn-gr-window" ng-click="use_est_gr()">Use This Average Growth Rate</button>
+                                </td>
+                            </tr>
+                            </tbody></table>
+                        <div id="est-gr-error" class="input-error" style="display: none;">
+                        </div>
+
+                        <table border="0" cellpadding="5">
+                            <tbody><tr>
+                                <td style="font-size: 18px;">
+                                    Need help finding the net income? Input the ticket here:
+                                </td>
+                                <td><input type="text" id="txt_gr_ticker" class="estimate-input"></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <button type="button" id="btn-gr-load" ng-click="load_external_gr()" style="width:80px;">Find</button>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+
+                <div id="error-gr" class="input-error" style="display: none;">
+                    Please enter valid positive percentage value
+                </div>
+                <div id="wrapper-n">
+                    <div class="input-label">
+                        What do you consider short term (most common is 10 years)?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-n" value="10" maxlength="20">
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="error-n" class="input-error" style="display: none;">
+                    Please enter short term (use whole number) from 1 to 10
+                </div>
+                <div id="wrapper-step1-btn" style="display: none;">
+                    <button type="button" id="btn-step1" ng-click="show_chart_1()">Continue</button>
+                </div>
+                <div id="wrapper-step1-results" style="display: none;"><table class="calc-results"><tbody><tr><td>Year</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>FCF</td><td>$10</td><td>$10</td><td>$11</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td><td>$14</td><td>$15</td><td>$16</td></tr><tr><td>GR</td><td>6.00%</td><td colspan="9">&nbsp;</td></tr></tbody></table></div>
+            </div>
+
+
+            <div id="wrapper-step2" style="">
+                <br>
+
+                <div id="wrapper-dr">
+                    <div class="input-label">
+                        What discount rate (use a whole number) would you like to use?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-dr" value="10%" maxlength="20">
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="error-dr" class="input-error" style="display: none;">
+                    Please enter valid positive percentage value
+                </div>
+                <div id="wrapper-step2-btn" style="display: none;">
+                    <button type="button" id="btn-step2" ng-click="show_chart_2()">Continue</button>
+                </div>
+                <div id="wrapper-step2-results" style="display: none;"><table class="calc-results"><tbody><tr><td>Year</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>FCF</td><td>$10</td><td>$10</td><td>$11</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td><td>$14</td><td>$15</td><td>$16</td></tr><tr><td>DF</td><td>1.10</td><td>1.21</td><td>1.33</td><td>1.46</td><td>1.61</td><td>1.77</td><td>1.95</td><td>2.14</td><td>2.36</td><td>2.59</td></tr><tr class=""><td>DFCF</td><td>$9</td><td>$8</td><td>$8</td><td>$8</td><td>$7</td><td>$7</td><td>$7</td><td>$7</td><td>$6</td><td>$6</td></tr><tr><td colspan="8">&nbsp;</td><td class="" colspan="2">Sum of DFCF</td><td class="">$74</td></tr></tbody></table></div>
+            </div>
+
+            <div id="wrapper-step3" style="">
+                <br>
+
+                <div id="wrapper-lgr">
+                    <div class="input-label">
+                        After the <span id="span-years">10</span><sup>th</sup> year, what percent (whole number) will the company
+                        continue to grow into
+                        perpetuity (recommend 3% or lower)?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-lgr" value="3%" maxlength="20">
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="error-lgr" class="input-error" style="display: none;">
+                    Please enter valid positive percentage value
+                </div>
+                <div id="wrapper-step3-btn" style="display: none;">
+                    <button type="button" id="btn-step3" ng-click="show_chart_3()">Continue</button>
+                </div>
+                <div id="wrapper-step3-results" style="display: none;"><table class="calc-results"><tbody><tr><td>Year</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>FCF</td><td>$10</td><td>$10</td><td>$11</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td><td>$14</td><td>$15</td><td>$16</td></tr><tr><td>DF</td><td>1.10</td><td>1.21</td><td>1.33</td><td>1.46</td><td>1.61</td><td>1.77</td><td>1.95</td><td>2.14</td><td>2.36</td><td>2.59</td></tr><tr class=""><td>DFCF</td><td>$9</td><td>$8</td><td>$8</td><td>$8</td><td>$7</td><td>$7</td><td>$7</td><td>$7</td><td>$6</td><td>$6</td></tr><tr><td colspan="8">&nbsp;</td><td class="" colspan="2">Sum of DFCF</td><td class="">$74</td></tr><tr><td colspan="7">&nbsp;</td><td class="calc-results-hl-final calc-results-hl" colspan="3">Discontinued perpetuity cash flow (DPCF)</td><td class="calc-results-hl-final calc-results-hl">$88</td></tr></tbody></table></div>
+            </div>
+
+            <div id="wrapper-step4" style="">
+                <br>
+
+                <div id="wrapper-cso">
+                    <div class="input-label">How many common shares are outstanding?<br>
+                        Note: Ensure the numbers on the cash flow statement and balance sheet are reported with the same
+                        rounding. For example, both statements are reported in millions or thousands.
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-cso" value="1,000" maxlength="20">
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="error-cso" class="input-error" style="display: none;">
+                    Please enter valid positive value
+                </div>
+                <div id="wrapper-step4-btn" style="display: none;">
+                    <button type="button" id="btn-step4" ng-click="show_chart_4()">Continue</button>
+                </div>
+                <div id="wrapper-step4-results" style="display: none;"><table class="calc-results"><tbody><tr><td>Year</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>FCF</td><td>$10</td><td>$10</td><td>$11</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td><td>$14</td><td>$15</td><td>$16</td></tr><tr><td>DF</td><td>1.10</td><td>1.21</td><td>1.33</td><td>1.46</td><td>1.61</td><td>1.77</td><td>1.95</td><td>2.14</td><td>2.36</td><td>2.59</td></tr><tr class=""><td>DFCF</td><td>$9</td><td>$8</td><td>$8</td><td>$8</td><td>$7</td><td>$7</td><td>$7</td><td>$7</td><td>$6</td><td>$6</td></tr><tr><td colspan="8">&nbsp;</td><td class="" colspan="2">Sum of DFCF</td><td class="">$74</td></tr><tr><td colspan="7">&nbsp;</td><td class="calc-results-hl-final calc-results-hl" colspan="3">Discontinued perpetuity cash flow (DPCF)</td><td class="calc-results-hl-final calc-results-hl">$88</td></tr></tbody></table><br><p><em>The intrinsic value per share is $0.16 at a 10.00% annual discount rate</em></p></div>
+            </div>
+
+            <div id="wrapper-step5" style="">
+                <br>
+
+                <div id="wrapper-mp">
+                    <div class="input-label">How much is your company trading for on the stock exchange?
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="txt-mp" value="25.04" maxlength="20">
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div id="error-mp" class="input-error">
+                    Please enter valid positive percentage value
+                </div>
+                <div id="wrapper-step5-results" style=""><table class="calc-results"><tbody><tr><td>Year</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>FCF</td><td>$10</td><td>$10</td><td>$11</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td><td>$14</td><td>$15</td><td>$16</td></tr><tr><td>DF</td><td>1.10</td><td>1.21</td><td>1.33</td><td>1.46</td><td>1.61</td><td>1.77</td><td>1.95</td><td>2.14</td><td>2.36</td><td>2.59</td></tr><tr class=""><td>DFCF</td><td>$9</td><td>$8</td><td>$8</td><td>$8</td><td>$7</td><td>$7</td><td>$7</td><td>$7</td><td>$6</td><td>$6</td></tr><tr><td colspan="8">&nbsp;</td><td class="" colspan="2">Sum of DFCF</td><td class="">$74</td></tr><tr><td colspan="7">&nbsp;</td><td class="calc-results-hl-final calc-results-hl" colspan="3">Discontinued perpetuity cash flow (DPCF)</td><td class="calc-results-hl-final calc-results-hl">$88</td></tr></tbody></table><br><p><em>The intrinsic value per share is $0.16 at a 10.00% annual discount rate</em></p>It is not possible to calculate the annual return based on given set of data</div>
+
+                <div id="wrapper-step5-btn">
+                    <button type="button" id="btn-step5" ng-click="show_all()">Calculate</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
