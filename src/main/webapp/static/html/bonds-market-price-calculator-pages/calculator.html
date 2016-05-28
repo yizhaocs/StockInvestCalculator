@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <span><b>Market Price (bonds) Calculator</b></span><br><br>
+        <form name="calculator">
+            <p>Coupon ($): <input type="text" name="coupon" ng-model="frontendData.coupon"> *This is the annual coupon payment in dollars.</p>
+            <p>Par Value ($): <input type="text" name="par" ng-model="frontendData.par"></p>
+            <p>Years to Maturity: <input type="text" name="year" ng-model="frontendData.year"> </p>
+            <p>New Interest rate (%):<input type="text" name="r" ng-model="frontendData.r"> *This is the new interest rate that a person could get.</p>
+            <div id="button">
+                <input type="button" value="Calculate" ng-click="multiply();">
+            </div>
+            <p>Bond Price: $<input type="text" name="total" maxlength="4" size="4" ng-model="frontendData.total">   </p>
+        </form>
+    </div>
+</div>

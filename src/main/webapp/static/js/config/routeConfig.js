@@ -35,6 +35,14 @@ app.config(['$routeProvider', '$locationProvider',
                 controller: 'listCtrlDbm'
             })
 
+            .when(base + 'bonds-market-price-calculator', {
+                title: 'Bonds Market Price Calculator',
+                templateUrl: 'static/html/bonds-market-price-calculator-pages/calculator.html',
+                controller: 'bondsMarketPriceCalculatorController'
+            })
+
+
+
             .when(base + 'dfc-calculator', {
                 title: 'DCF Calculator',
                 templateUrl: 'static/html/dcf-calculator-pages/calculator.html',
