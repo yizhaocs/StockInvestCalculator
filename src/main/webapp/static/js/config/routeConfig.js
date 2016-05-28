@@ -1,8 +1,3 @@
-/**
- * @author JASON GAO[jason.gao@adara.com ]
- * @author YI ZHAO[yi.zhao@adara.com]
- */
-
 app.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         var base = '/';
