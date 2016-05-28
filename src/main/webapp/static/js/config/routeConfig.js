@@ -45,7 +45,7 @@ app.config(['$routeProvider', '$locationProvider',
 
             .when(base + 'dfc-calculator', {
                 title: 'DCF Calculator',
-                templateUrl: 'static/html/dcf-calculator-pages/calculator.html',
+                templateUrl: 'static/html/discount-cash-flow-calculator-pages/calculator.html',
                 controller: 'dfcCalculatorController'
             })
 
