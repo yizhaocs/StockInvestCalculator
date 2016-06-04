@@ -44,6 +44,12 @@ app.config(['$routeProvider', '$locationProvider',
                 controller: 'dfcCalculatorController'
             })
 
+            .when(base + 'sell-calculator', {
+                title: 'Sell Calculator',
+                templateUrl: 'static/html/sell-calculator-pages/calculator.html',
+                controller: 'sellCalculatorController'
+            })
+
             .otherwise({
                 templateUrl: 'static/html/intrinsic-value-calculator-pages/calculator.html',
                 redirectTo: base + 'intrinsic-value-calculator'

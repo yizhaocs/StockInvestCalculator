@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <span><b>BuffettsBooks Sell Calculator</b></span><br><br>
+        <form name="calculator">
+            <div id="data-input-wrapper">
+                <div class="input-label">
+                    <b>What is price of the stock you currently own?</b>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-csp" value="$70.00" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+
+                <div class="input-label">
+                    <b> How many shares of this stock do you own?</b>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-ns" value="1000" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+
+                <div class="input-label">
+                    <b>What annual discount rate makes the intrinsic value equal to the market price for the stock you
+                        currently own?</b><br>
+                    You can watch a method for determining this input at the 19.58 minute mark in the video above.
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-cdr" value="1%" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+
+                <div class="input-label">
+                    <b>What will be the capital gains tax rate if you decide to sell your current stock?</b>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-cg" value="20%" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+
+                <div class="input-label">
+                    <b>What gains have you made while owning your current stock pick?</b>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-g" value="$20,000" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+
+                <!-- <div class="input-label">
+                     What is the market price of the new stock pick you are considering?
+                 </div>
+                 <div class="input-field">
+                     <input type="text" id="txt-nsp" value="34.50" maxlength="20">
+                 </div>
+                 <div style="clear: both;"></div> -->
+
+                <div class="input-label">
+                    <b>For the new stock pick, what annual discount rate makes the intrinsic value equal to the market
+                        price?</b><br>
+                    You can watch a method for determining this input at the 26.24 minute mark in the video above.
+                </div>
+                <div class="input-field">
+                    <input type="text" id="txt-ndr" value="5.5%" maxlength="20">
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div id="wrapper-sell-criteria-btn">
+                <button type="button" id="btn-show-sell-criteria" onclick="show_sell_criteria()">Show sell criteria
+                </button>
+            </div>
+            <br>
+            <div id="results-wrapper">
+                <div id="results-text-wrapper">
+                </div>
+                <br>
+                <div id="results-image-wrapper">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
