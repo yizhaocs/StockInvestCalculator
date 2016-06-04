@@ -8,7 +8,7 @@
                     <b>What is price of the stock you currently own?</b>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-csp" value="$70.00" maxlength="20">
+                    <input type="text" id="txt-csp" value="$70.00" maxlength="20" ng-model="frontendData.csp">
                 </div>
                 <div style="clear: both;"></div>
 
@@ -16,7 +16,7 @@
                     <b> How many shares of this stock do you own?</b>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-ns" value="1000" maxlength="20">
+                    <input type="text" id="txt-ns" value="1000" maxlength="20" ng-model="frontendData.ns">
                 </div>
                 <div style="clear: both;"></div>
 
@@ -26,7 +26,7 @@
                     You can watch a method for determining this input at the 19.58 minute mark in the video above.
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-cdr" value="1%" maxlength="20">
+                    <input type="text" id="txt-cdr" value="1%" maxlength="20" ng-model="frontendData.cdr">
                 </div>
                 <div style="clear: both;"></div>
 
@@ -34,7 +34,7 @@
                     <b>What will be the capital gains tax rate if you decide to sell your current stock?</b>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-cg" value="20%" maxlength="20">
+                    <input type="text" id="txt-cg" value="20%" maxlength="20" ng-model="frontendData.cg">
                 </div>
                 <div style="clear: both;"></div>
 
@@ -42,7 +42,7 @@
                     <b>What gains have you made while owning your current stock pick?</b>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-g" value="$20,000" maxlength="20">
+                    <input type="text" id="txt-g" value="$20,000" maxlength="20" ng-model="frontendData.g">
                 </div>
                 <div style="clear: both;"></div>
 
@@ -60,12 +60,12 @@
                     You can watch a method for determining this input at the 26.24 minute mark in the video above.
                 </div>
                 <div class="input-field">
-                    <input type="text" id="txt-ndr" value="5.5%" maxlength="20">
+                    <input type="text" id="txt-ndr" value="5.5%" maxlength="20" ng-model="frontendData.ndr">
                 </div>
                 <div style="clear: both;"></div>
             </div>
             <div id="wrapper-sell-criteria-btn">
-                <button type="button" id="btn-show-sell-criteria" onclick="show_sell_criteria()">Show sell criteria
+                <button type="button" id="btn-show-sell-criteria" ng-click="show_sell_criteria()">Show sell criteria
                 </button>
             </div>
             <br>

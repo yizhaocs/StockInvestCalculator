@@ -71,11 +71,11 @@ app.controller('sellCalculatorController', function ($scope) {
     }
 
     $scope.cur2int = function cur2int(user_input) {
-        return parseInt(cur2num(user_input));
+        return parseInt($scope.cur2num(user_input));
     }
 
     $scope.cur2float = function cur2float(user_input) {
-        return parseFloat(cur2num(user_input));
+        return parseFloat($scope.cur2num(user_input));
     }
 
     $scope.int2cur = function int2cur(user_input) {
@@ -95,13 +95,13 @@ app.controller('sellCalculatorController', function ($scope) {
     }
 
     $scope.show_sell_criteria = function show_sell_criteria() {
-        var csp = cur2float($('#txt-csp').val());
-        var ns = cur2int($('#txt-ns').val());
-        var cdr = cur2float($('#txt-cdr').val());
-        var cg = cur2float($('#txt-cg').val());
-        var g = cur2float($('#txt-g').val());
-        var nsp = cur2float($('#txt-nsp').val());
-        var ndr = cur2float($('#txt-ndr').val());
+        var csp = $scope.cur2float($scope.frontendData.csp);
+        var ns = $scope.cur2int($scope.frontendData.ns);
+        var cdr = $scope.cur2float($scope.frontendData.cdr);
+        var cg = $scope.cur2float($scope.frontendData.cg);
+        var g = $scope.cur2float($scope.frontendData.g);
+        var nsp = $scope.cur2float($scope.frontendData.nsp);
+        var ndr = $scope.cur2float($scope.frontendData.ndr);
 
         var stock_current = new Array();
         var stock_new = new Array();
@@ -123,24 +123,24 @@ app.controller('sellCalculatorController', function ($scope) {
         html += "<th>New Stock</th>";
         html += "</tr>";
         for (var i = 0; i <= 30; i += 5) {
-            html += "<tr><td>" + i.toString() + "</td><td>$" + int2cur(stock_current[i]) + "</td><td>$" + int2cur(stock_new[i]) + "</td></tr>";
+            html += "<tr><td>" + i.toString() + "</td><td>$" + $scope.int2cur(stock_current[i]) + "</td><td>$" + $scope.int2cur(stock_new[i]) + "</td></tr>";
         }
         html += "</table>";
         $('#results-text-wrapper').html(html);
         $('#results-text-wrapper').show();
 
-        $.post("/php/graph-sell-criteria.php",
-            {
-                stock_current: stock_current.join("|"),
-                stock_new: stock_new.join("|")
-            },
-            function (data) {
-                var reply = $.parseJSON(data);
-                if (reply.result == "OK") {
-                    $('#results-image-wrapper').html("<img src='" + reply.file_name + "' width='720' height='400'>");
-                }
-
-            });
+        //$.post("/php/graph-sell-criteria.php",
+        //    {
+        //        stock_current: stock_current.join("|"),
+        //        stock_new: stock_new.join("|")
+        //    },
+        //    function (data) {
+        //        var reply = $.parseJSON(data);
+        //        if (reply.result == "OK") {
+        //            $('#results-image-wrapper').html("<img src='" + reply.file_name + "' width='720' height='400'>");
+        //        }
+        //
+        //    });
 
     }
 
@@ -150,12 +150,12 @@ app.controller('sellCalculatorController', function ($scope) {
             data[i] = new Array();
         }
         for (var i = 1; i <= 10; i++) {
-            data[0][i - 1] = cur2float($('#txt-eps-' + i.toString()).val());
-            data[1][i - 1] = cur2float($('#txt-dividend-' + i.toString()).val());
-            data[2][i - 1] = cur2float($('#txt-book-value-' + i.toString()).val());
-            data[3][i - 1] = cur2float($('#txt-roi-' + i.toString()).val());
-            data[4][i - 1] = cur2float($('#txt-ratio-' + i.toString()).val());
-            data[5][i - 1] = cur2float($('#txt-debt-equity-' + i.toString()).val());
+            data[0][i - 1] = $scope.cur2float($('#txt-eps-' + i.toString()).val());
+            data[1][i - 1] = $scope.cur2float($('#txt-dividend-' + i.toString()).val());
+            data[2][i - 1] = $scope.cur2float($('#txt-book-value-' + i.toString()).val());
+            data[3][i - 1] = $scope.cur2float($('#txt-roi-' + i.toString()).val());
+            data[4][i - 1] = $scope.cur2float($('#txt-ratio-' + i.toString()).val());
+            data[5][i - 1] = $scope.cur2float($('#txt-debt-equity-' + i.toString()).val());
         }
 
         for (var i = 0; i <= 5; i++) {
